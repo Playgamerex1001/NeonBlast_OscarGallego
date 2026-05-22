@@ -1,0 +1,361 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: #070a0e;
+  color: #e8eef6;
+}
+
+.app {
+  min-height: 100%;
+  min-height: 100dvh;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom)
+    env(safe-area-inset-left);
+  display: flex;
+  flex-direction: column;
+}
+
+.screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.screen--menu {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1rem;
+  padding: 1.25rem;
+}
+
+.menu-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+  width: 100%;
+  max-width: 18rem;
+}
+
+.menu-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  background: rgba(7, 10, 14, 0.88);
+  backdrop-filter: blur(6px);
+}
+
+.menu-overlay__panel {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1rem;
+  width: 100%;
+  max-width: 22rem;
+  padding: 1.1rem 1rem;
+  border: 1px solid rgba(124, 240, 255, 0.22);
+  border-radius: 12px;
+  background: #0b1218;
+}
+
+.menu-overlay__title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #7cf0ff;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.menu-overlay__hint {
+  margin: 0;
+  font-size: 0.82rem;
+  opacity: 0.65;
+  text-align: center;
+  line-height: 1.35;
+}
+
+.settings-sliders {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.85rem 1rem;
+  justify-content: center;
+}
+
+.settings-slider {
+  display: flex;
+  flex: 1 1 9.5rem;
+  align-items: center;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
+.settings-slider__label {
+  flex-shrink: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #e8eef6;
+  min-width: 3.25rem;
+  text-align: left;
+}
+
+.settings-slider__input {
+  flex: 1;
+  min-width: 0;
+  height: 28px;
+  accent-color: #7cf0ff;
+  cursor: pointer;
+}
+
+.settings-slider__value {
+  flex-shrink: 0;
+  width: 1.75rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #7cf0ff;
+  text-align: right;
+}
+
+.screen--menu .title {
+  margin: 0;
+  font-size: clamp(1.75rem, 6vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #7cf0ff;
+  text-shadow:
+    0 0 12px rgba(124, 240, 255, 0.45),
+    0 0 40px rgba(124, 240, 255, 0.2);
+}
+
+.tagline {
+  margin: 0;
+  font-size: 0.95rem;
+  opacity: 0.72;
+  max-width: 22rem;
+}
+
+.difficulty-picker {
+  margin: 0;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(124, 240, 255, 0.22);
+  border-radius: 12px;
+  max-width: 18rem;
+  width: 100%;
+}
+
+.difficulty-picker__legend {
+  padding: 0 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #7cf0ff;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.difficulty-picker__option {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 0.55rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.difficulty-picker__option input {
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: #7cf0ff;
+}
+
+.difficulty-picker__detail {
+  font-style: normal;
+  opacity: 0.65;
+  font-size: 0.88em;
+}
+
+.btn {
+  appearance: none;
+  border: 1px solid rgba(232, 238, 246, 0.22);
+  border-radius: 12px;
+  padding: 0.9rem 1.35rem;
+  min-height: 48px;
+  min-width: 200px;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  color: inherit;
+  background: rgba(232, 238, 246, 0.06);
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.1s ease;
+}
+
+.btn:focus-visible {
+  outline: 2px solid #7cf0ff;
+  outline-offset: 3px;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn--primary {
+  background: linear-gradient(180deg, rgba(124, 240, 255, 0.22), rgba(124, 240, 255, 0.08));
+  border-color: rgba(124, 240, 255, 0.45);
+  color: #f4fdff;
+}
+
+.btn--primary:hover {
+  background: linear-gradient(180deg, rgba(124, 240, 255, 0.32), rgba(124, 240, 255, 0.12));
+  border-color: rgba(124, 240, 255, 0.65);
+}
+
+.btn--ghost {
+  background: transparent;
+  border-color: rgba(124, 240, 255, 0.28);
+  color: #b8e8f0;
+  min-width: 200px;
+}
+
+.btn--ghost:hover {
+  background: rgba(124, 240, 255, 0.08);
+  border-color: rgba(124, 240, 255, 0.45);
+}
+
+.screen--level {
+  padding: 0;
+  min-height: 100%;
+  min-height: 100dvh;
+}
+
+.level-hud {
+  flex-shrink: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem 0.75rem;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid rgba(124, 240, 255, 0.15);
+}
+
+.level-hud__score {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #4af2a8;
+}
+
+.level-hud__score.is-bonus {
+  color: #f8e87a;
+}
+
+.level-hud__balls {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #7cf0ff;
+}
+
+.level-hud__balls.is-empty {
+  color: #f8c65a;
+}
+
+.level-hud__difficulty {
+  margin-left: 0.75rem;
+  padding-left: 0.75rem;
+  border-left: 1px solid rgba(124, 240, 255, 0.2);
+  font-size: 0.85rem;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.stage-wrap {
+  flex: 1;
+  width: 100%;
+  position: relative;
+  min-height: 0;
+  min-height: max(200px, 45vh);
+}
+
+.stage-wrap .game-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.level-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  background: rgba(7, 10, 14, 0.72);
+  backdrop-filter: blur(4px);
+}
+
+.level-overlay__panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  text-align: center;
+  max-width: 20rem;
+}
+
+.level-overlay__title {
+  margin: 0;
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.level-overlay__title--win {
+  color: #4af2a8;
+  text-shadow: 0 0 20px rgba(74, 242, 168, 0.35);
+}
+
+.level-overlay__title--lose {
+  color: #f8c65a;
+  text-shadow: 0 0 20px rgba(248, 198, 90, 0.35);
+}
+
+.level-overlay__score {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #e8eef6;
+  letter-spacing: 0.02em;
+}
+
+.game-canvas {
+  display: block;
+  touch-action: none;
+}
+
+.is-hidden {
+  display: none !important;
+}
